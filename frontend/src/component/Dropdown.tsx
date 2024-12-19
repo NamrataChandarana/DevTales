@@ -13,8 +13,8 @@ import { loadUser } from "../redux/reducer/userSlice";
 import { useEffect } from "react";
 
 const Dropdown = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const authStatus = localStorage.getItem("token");
+      const [isOpen, setIsOpen] = useState(false);
+      const authStatus = localStorage.getItem("token");
     const dispatch = useDispatch();
     const navigate = useNavigate();
     

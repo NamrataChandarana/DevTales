@@ -10,6 +10,9 @@ export const userRouter = new Hono<{
     Bindings: {
         DATABASE_URL: string;
         JWT_SECRET: string;
+    },
+    Variables: {
+      userId: string
     }
 }>();
 
@@ -140,10 +143,11 @@ userRouter.post('/logout', async(c) =>{
 
 userRouter.get('/profile', async(c) =>{
 
+    const userId = c.get('userId');
     const prisma = new PrismaClient({
       datasourceUrl: c.env.DATABASE_URL,
     }).$extends(withAccelerate());
-    const userId = c.get('userId');
+    
 
     try{
       const user = await prisma.user.findUnique({
