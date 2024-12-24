@@ -25,7 +25,6 @@ export const ProfileComponent= ({
 }: profilePorps) => {
 
     const dispatch = useDispatch();
-  
     async function deleteBlog (id: string) {
         try {
           const res = await axios.delete(`${BACKEND_URL}/api/v1/post/${id}`,{
